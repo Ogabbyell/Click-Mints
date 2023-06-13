@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from 'next/document'
 import Navbar from '../components/navbar';
 
 
-export default function Document() {
+function Document() {
   return (
     <Html lang="en">
       <Head />
@@ -14,3 +14,5 @@ export default function Document() {
     </Html>
   );
 }
+
+export default Document;
