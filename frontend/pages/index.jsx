@@ -2,6 +2,15 @@
 // import type { NextPage } from 'next';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+  Tooltip,
+  Button
+} from "@material-tailwind/react";
 
 const Home = () => {
   return (
@@ -16,58 +25,306 @@ const Home = () => {
       </Head>
 
       <main className={styles.main}>
-
         <h1 className={styles.title}>
-          Welcome to <a href="">RainbowKit</a> + <a href="">wagmi</a> +{" "}
-          <a href="https://nextjs.org">Next.js!</a>
+          Click <span>Mints</span>
         </h1>
 
-        <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
+        <p className={styles.description}>Create, Mint and view your NFTs</p>
 
         <div className={styles.grid}>
-          <a className={styles.card} href="https://rainbowkit.com">
-            <h2>RainbowKit Documentation &rarr;</h2>
-            <p>Learn how to customize your wallet connection flow.</p>
-          </a>
+          <Card className="w-96 hover:border-4 border-rose-600">
+            <CardHeader floated={false} className="h-60">
+              <img src="/images/picture_nft.jpeg" alt="profile-picture" />
+            </CardHeader>
+            <CardBody className="text-center">
+              <Typography variant="h4" color="blue-gray" className="mb-2">
+                Gaming NFTs
+              </Typography>
+              <Typography color="blue" className="font-medium" textGradient>
+                CEO / Co-Founder
+              </Typography>
+            </CardBody>
+            <CardFooter className="flex justify-center gap-7 pt-2">
+              <Tooltip content="Like">
+                <Typography
+                  as="a"
+                  href="#facebook"
+                  variant="lead"
+                  color="blue"
+                  textGradient
+                >
+                  <i className="fab fa-facebook" />
+                </Typography>
+              </Tooltip>
+              <Tooltip content="Follow">
+                <Typography
+                  as="a"
+                  href="#twitter"
+                  variant="lead"
+                  color="light-blue"
+                  textGradient
+                >
+                  <i className="fab fa-twitter" />
+                </Typography>
+              </Tooltip>
+              <Tooltip content="Follow">
+                <Typography
+                  as="a"
+                  href="#instagram"
+                  variant="lead"
+                  color="purple"
+                  textGradient
+                >
+                  <i className="fab fa-instagram" />
+                </Typography>
+              </Tooltip>
+            </CardFooter>
+          </Card>
 
-          <a className={styles.card} href="https://wagmi.sh">
-            <h2>wagmi Documentation &rarr;</h2>
-            <p>Learn how to interact with Ethereum.</p>
-          </a>
+          <Card className="w-96 hover:border-4 border-rose-600">
+            <CardHeader floated={false} className="h-60">
+              <img src="/images/video_nfts.jpg" alt="profile-picture" />
+            </CardHeader>
+            <CardBody className="text-center">
+              <Typography variant="h4" color="blue-gray" className="mb-2">
+                Video NFTs
+              </Typography>
+              <Typography color="blue" className="font-medium" textGradient>
+                CEO / Co-Founder
+              </Typography>
+            </CardBody>
+            <CardFooter className="flex justify-center gap-7 pt-2">
+              <Tooltip content="Like">
+                <Typography
+                  as="a"
+                  href="#facebook"
+                  variant="lead"
+                  color="blue"
+                  textGradient
+                >
+                  <i className="fab fa-facebook" />
+                </Typography>
+              </Tooltip>
+              <Tooltip content="Follow">
+                <Typography
+                  as="a"
+                  href="#twitter"
+                  variant="lead"
+                  color="light-blue"
+                  textGradient
+                >
+                  <i className="fab fa-twitter" />
+                </Typography>
+              </Tooltip>
+              <Tooltip content="Follow">
+                <Typography
+                  as="a"
+                  href="#instagram"
+                  variant="lead"
+                  color="purple"
+                  textGradient
+                >
+                  <i className="fab fa-instagram" />
+                </Typography>
+              </Tooltip>
+            </CardFooter>
+          </Card>
 
-          <a
-            className={styles.card}
-            href="https://github.com/rainbow-me/rainbowkit/tree/main/examples"
-          >
-            <h2>RainbowKit Examples &rarr;</h2>
-            <p>Discover boilerplate example RainbowKit projects.</p>
-          </a>
+          <Card className="w-96 hover:border-4 border-rose-600">
+            <CardHeader floated={false} className="h-60">
+              <img src="/images/music-nft.webp" alt="profile-picture" />
+            </CardHeader>
+            <CardBody className="text-center">
+              <Typography variant="h4" color="blue-gray" className="mb-2">
+                Music NFTs
+              </Typography>
+              <Typography color="blue" className="font-medium" textGradient>
+                CEO / Co-Founder
+              </Typography>
+            </CardBody>
+            <CardFooter className="flex justify-center gap-7 pt-2">
+              <Tooltip content="Like">
+                <Typography
+                  as="a"
+                  href="#facebook"
+                  variant="lead"
+                  color="blue"
+                  textGradient
+                >
+                  <i className="fab fa-facebook" />
+                </Typography>
+              </Tooltip>
+              <Tooltip content="Follow">
+                <Typography
+                  as="a"
+                  href="#twitter"
+                  variant="lead"
+                  color="light-blue"
+                  textGradient
+                >
+                  <i className="fab fa-twitter" />
+                </Typography>
+              </Tooltip>
+              <Tooltip content="Follow">
+                <Typography
+                  as="a"
+                  href="#instagram"
+                  variant="lead"
+                  color="purple"
+                  textGradient
+                >
+                  <i className="fab fa-instagram" />
+                </Typography>
+              </Tooltip>
+            </CardFooter>
+          </Card>
 
-          <a className={styles.card} href="https://nextjs.org/docs">
-            <h2>Next.js Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+          <Card className="w-96 hover:border-4 border-rose-600">
+            <CardHeader floated={false} className="h-60">
+              <img src="/images/mystery_box.webp" alt="profile-picture" />
+            </CardHeader>
+            <CardBody className="text-center">
+              <Typography variant="h4" color="blue-gray" className="mb-2">
+                Mystery Box NFTs
+              </Typography>
+              <Typography color="blue" className="font-medium" textGradient>
+                CEO / Co-Founder
+              </Typography>
+            </CardBody>
+            <CardFooter className="flex justify-center gap-7 pt-2">
+              <Tooltip content="Like">
+                <Typography
+                  as="a"
+                  href="#facebook"
+                  variant="lead"
+                  color="blue"
+                  textGradient
+                >
+                  <i className="fab fa-facebook" />
+                </Typography>
+              </Tooltip>
+              <Tooltip content="Follow">
+                <Typography
+                  as="a"
+                  href="#twitter"
+                  variant="lead"
+                  color="light-blue"
+                  textGradient
+                >
+                  <i className="fab fa-twitter" />
+                </Typography>
+              </Tooltip>
+              <Tooltip content="Follow">
+                <Typography
+                  as="a"
+                  href="#instagram"
+                  variant="lead"
+                  color="purple"
+                  textGradient
+                >
+                  <i className="fab fa-instagram" />
+                </Typography>
+              </Tooltip>
+            </CardFooter>
+          </Card>
 
-          <a
-            className={styles.card}
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-          >
-            <h2>Next.js Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+          <Card className="w-96 hover:border-4 border-rose-600">
+            <CardHeader floated={false} className="h-60">
+              <img src="/images/tickets.webp" alt="profile-picture" />
+            </CardHeader>
+            <CardBody className="text-center">
+              <Typography variant="h4" color="blue-gray" className="mb-2">
+                NFT Tickets
+              </Typography>
+              <Typography color="blue" className="font-medium" textGradient>
+                CEO / Co-Founder
+              </Typography>
+            </CardBody>
+            <CardFooter className="flex justify-center gap-7 pt-2">
+              <Tooltip content="Like">
+                <Typography
+                  as="a"
+                  href="#facebook"
+                  variant="lead"
+                  color="blue"
+                  textGradient
+                >
+                  <i className="fab fa-facebook" />
+                </Typography>
+              </Tooltip>
+              <Tooltip content="Follow">
+                <Typography
+                  as="a"
+                  href="#twitter"
+                  variant="lead"
+                  color="light-blue"
+                  textGradient
+                >
+                  <i className="fab fa-twitter" />
+                </Typography>
+              </Tooltip>
+              <Tooltip content="Follow">
+                <Typography
+                  as="a"
+                  href="#instagram"
+                  variant="lead"
+                  color="purple"
+                  textGradient
+                >
+                  <i className="fab fa-instagram" />
+                </Typography>
+              </Tooltip>
+            </CardFooter>
+          </Card>
 
-          <a
-            className={styles.card}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+          <Card className="w-96 hover:border-4 border-rose-600">
+            <CardHeader floated={false} className="h-60">
+              <img src="/images/badge.jpg" alt="profile-picture" />
+            </CardHeader>
+            <CardBody className="text-center">
+              <Typography variant="h4" color="blue-gray" className="mb-2">
+                OATs and POAPs
+              </Typography>
+              <Typography color="blue" className="font-medium" textGradient>
+                CEO / Co-Founder
+              </Typography>
+            </CardBody>
+            <CardFooter className="flex justify-center gap-7 pt-2">
+              <Tooltip content="Like">
+                <Typography
+                  as="a"
+                  href="#facebook"
+                  variant="lead"
+                  color="blue"
+                  textGradient
+                >
+                  <i className="fab fa-facebook" />
+                </Typography>
+              </Tooltip>
+              <Tooltip content="Follow">
+                <Typography
+                  as="a"
+                  href="#twitter"
+                  variant="lead"
+                  color="light-blue"
+                  textGradient
+                >
+                  <i className="fab fa-twitter" />
+                </Typography>
+              </Tooltip>
+              <Tooltip content="Follow">
+                <Typography
+                  as="a"
+                  href="#instagram"
+                  variant="lead"
+                  color="purple"
+                  textGradient
+                >
+                  <i className="fab fa-instagram" />
+                </Typography>
+              </Tooltip>
+            </CardFooter>
+          </Card>
         </div>
       </main>
 

@@ -119,7 +119,7 @@ export default function Example() {
             href="#"
             className="mr-4 cursor-pointer py-1.5 font-medium"
           >
-            Material Tailwind
+            Place Logo Here
           </Typography>
           <div>
             <ConnectButton
