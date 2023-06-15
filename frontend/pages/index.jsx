@@ -1,9 +1,9 @@
-import { ConnectButton } from '@rainbow-me/rainbowkit';
-import type { NextPage } from 'next';
+// import { ConnectButton } from '@rainbow-me/rainbowkit';
+// import type { NextPage } from 'next';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 
-const Home: NextPage = () => {
+const Home = () => {
   return (
     <div className={styles.container}>
       <Head>
@@ -16,16 +16,6 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <ConnectButton
-          accountStatus={{
-            smallScreen: "avatar",
-            largeScreen: "full",
-          }}
-          showBalance={{
-            smallScreen: false,
-            largeScreen: true,
-          }}
-        />
 
         <h1 className={styles.title}>
           Welcome to <a href="">RainbowKit</a> + <a href="">wagmi</a> +{" "}

@@ -6,7 +6,6 @@ import {
   Typography,
   Button,
   IconButton,
-  Card,
 } from "@material-tailwind/react";
 
 export default function Example() {
@@ -68,25 +67,6 @@ export default function Example() {
     <>
       <Navbar className="sticky inset-0 z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4">
         <div className="flex items-center justify-between text-blue-gray-900">
-          <Typography
-            as="a"
-            href="#"
-            className="mr-4 cursor-pointer py-1.5 font-medium"
-          >
-            Material Tailwind
-          </Typography>
-          {/* <div>
-            <ConnectButton
-              accountStatus={{
-                smallScreen: "avatar",
-                largeScreen: "full",
-              }}
-              showBalance={{
-                smallScreen: false,
-                largeScreen: true,
-              }}
-            />
-          </div> */}
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
             <Button
@@ -134,6 +114,25 @@ export default function Example() {
               )}
             </IconButton>
           </div>
+          <Typography
+            as="a"
+            href="#"
+            className="mr-4 cursor-pointer py-1.5 font-medium"
+          >
+            Material Tailwind
+          </Typography>
+          <div>
+            <ConnectButton
+              accountStatus={{
+                smallScreen: "avatar",
+                largeScreen: "full",
+              }}
+              showBalance={{
+                smallScreen: false,
+                largeScreen: false,
+              }}
+            />
+          </div>
         </div>
         <Collapse open={openNav}>
           {navList}
@@ -145,3 +144,5 @@ export default function Example() {
     </>
   );
 }
+
+

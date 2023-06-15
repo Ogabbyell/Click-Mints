@@ -1,7 +1,7 @@
 import '../styles/globals.css';
 import '@rainbow-me/rainbowkit/styles.css';
 import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
-import type { AppProps } from 'next/app';
+// import type { AppProps } from 'next/app';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import {
   mainnet,
@@ -17,6 +17,8 @@ import {
 } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from 'wagmi/providers/public';
+
+import RootLayout from "./layout";
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [
@@ -47,7 +49,7 @@ const wagmiConfig = createConfig({
   webSocketPublicClient,
 });
 
-function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component, pageProps }) {
   return (
     <WagmiConfig config={wagmiConfig}>
       <RainbowKitProvider
@@ -55,10 +57,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         modalSize="compact"
         initialChain={mainnet}
       >
-        <Component {...pageProps} />
+        <RootLayout>
+          <Component {...pageProps} />
+        </RootLayout>
       </RainbowKitProvider>
     </WagmiConfig>
   );
 }
 
-export default MyApp;
+
