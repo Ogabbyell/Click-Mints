@@ -4,10 +4,13 @@ import { Contract } from "alchemy-sdk";
 import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { useAccount, useSigner } from "wagmi";
-
+import creatorAbi from "../contracts_abi/creatorAbi.json";
 
 // React component for NFT creator form
-export default function NftCreator({ contractAddress, abi }) {
+export default function NftCreator({ 
+  contractAddress = "0x1FCB4617F7e331363876AEAcde086BEB6d66420E",
+  abi = creatorAbi,
+}) {
   // Hooks for handling form input and submission
   const { address, isDisconnected } = useAccount();
   const { data: signer } = useSigner();

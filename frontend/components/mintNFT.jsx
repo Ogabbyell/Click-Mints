@@ -23,38 +23,57 @@ export default function MintNFT({
   const [txHash, setTxHash] = useState();
   const [isMinting, setIsMinting] = useState(false);
 
+  // set number of tokens to mint
   const [mintAmount, setMintAmount] = useState(1);
-  const [price, setPrice] = useState(0.05);
+
+  // set mint cost from smart contract
+  const [cost, setCost] = useState(0);
+
+  // set display price on user interface
+  const [displayPrice, setDisplayPrice] = useState(0.05);
+  
+  const nftContract = new Contract(contractAddress, abi, signer);
+
+  const getMint = async () => {
+    const price = await nftContract.cost();
+    console.log(price.toString()) 
+    setCost(price.toString())
+  };
+  
+  React.useEffect(() => {
+    if (nftContract?.signer) {
+      getMint();
+    }
+  }, [nftContract]);
 
   function decrement() {
     if (mintAmount > 1) {
       setMintAmount((a) => a - 1);
-      setPrice((a) => a / 2);
+      setDisplayPrice((a) => a / 2);
     }
   }
 
   function increment() {
     if (mintAmount < 2) {
       setMintAmount((a) => a + 1);
-      setPrice((a) => a * 2);
+      setDisplayPrice((a) => a * 2);
     }
   }
 
-  console.log({ price });
-
+  console.log(cost);
+  
   // Function to mint a new NFT
   const mintNFT = async () => {
     console.log(tokenUri, contractAddress, address);
 
     // Create a new instance of the NFT contract using the contract address and ABI
-    const nftContract = new Contract(contractAddress, abi, signer);
-    const maxSupply = nftContract.maxSupply();
-    console.log(maxSupply);
+    // const nftContract = new Contract(contractAddress, abi, signer);
+    
     try {
       // Set isMinting to true to show that the transaction is being processed
       setIsMinting(true);
       // Call the smart contract function to mint a new NFT with the provided token URI and the user's address
-      const mintTx = await nftContract.mint(mintAmount);
+      const mintTx = await nftContract.mint(mintAmount, {value: ((cost * mintAmount).toString())});
       // Set the transaction hash in state to display in the UI
       setTxHash(mintTx?.hash);
       // Wait for the transaction to be processed
@@ -88,7 +107,7 @@ export default function MintNFT({
           <div className="mt-3 flex items-end justify-between">
             <p>
               <span className="text-lg ">
-                {price} {""}ETH{" "}
+                {displayPrice} {""}MATIC{" "}
               </span>
             </p>
 
