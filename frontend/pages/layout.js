@@ -1,6 +1,5 @@
 // import { Html, Head, Main, NextScript } from 'next/document'
-import Navbar from '../components/navbar';
-
+import Navbar from "../components/navbar";
 
 export default function RootLayout({ children }) {
   return (
@@ -10,5 +9,3 @@ export default function RootLayout({ children }) {
     </div>
   );
 }
-
-

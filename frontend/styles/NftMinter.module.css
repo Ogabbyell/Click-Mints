@@ -1,0 +1,23 @@
+
+.tx_hash {
+  color: rgb(0, 98, 255);
+}
+
+.isMinting {
+  background-color: lightgray;
+  cursor: not-allowed;
+}
+
+.attribute_input_label {
+  font-weight: 700;
+  font-size: 14px;
+  color: #4e4e4e;
+  margin-block: 0.5em;
+}
+
+.address_container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+

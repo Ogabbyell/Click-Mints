@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import {
@@ -24,40 +26,40 @@ export default function Example() {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-2 font-normal hover:text-blue-500"
       >
-        <a href="#" className="flex items-center">
-          Pages
+        <a href="/" className="flex items-center">
+          Home
         </a>
       </Typography>
       <Typography
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-2 font-normal hover:text-blue-500"
       >
-        <a href="#" className="flex items-center">
-          Account
+        <a href="/mintpad" className="flex items-center">
+          Mintpad
         </a>
       </Typography>
       <Typography
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-2 font-normal hover:text-blue-500"
       >
-        <a href="#" className="flex items-center">
-          Blocks
+        <a href="/gallery" className="flex items-center">
+          NFT Gallery
         </a>
       </Typography>
       <Typography
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-2 font-normal hover:text-blue-500"
       >
-        <a href="#" className="flex items-center">
-          Docs
+        <a href="/create" className="flex items-center">
+          Create NFT
         </a>
       </Typography>
     </ul>
@@ -144,5 +146,3 @@ export default function Example() {
     </>
   );
 }
-
-

@@ -1,0 +1,70 @@
+import * as React from "react";
+import {
+  usePrepareContractWrite,
+  useContractWrite,
+  useWaitForTransaction,
+} from "wagmi";
+
+
+export default function mintNFT() {
+  const [mintAmount, setMintAmount] = React.useState("");
+  // const debouncedmintAmount = useDebounce(mintAmount);
+
+  const {
+    config,
+    error: prepareError,
+    isError: isPrepareError,
+  } = usePrepareContractWrite({
+    address: "0xb144F34890BbcCE87E6423fa1e089f99D56E588e",
+    abi: [
+      {
+        name: "mint",
+        type: "function",
+        stateMutability: "payable",
+        inputs: [
+          { internalType: "uint256", name: "mintAmount", type: "uint256" },
+        ],
+        outputs: [],
+      },
+    ],
+    functionName: "mint",
+    args: [parseInt(mintAmount)],
+    enabled: Boolean(mintAmount),
+  });
+  const { data, error, isError, write } = useContractWrite(config);
+
+  const { isLoading, isSuccess } = useWaitForTransaction({
+    hash: data?.hash,
+  });
+
+  return (
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        write?.();
+      }}
+    >
+      <label for="mintAmount">Mint Amount</label>
+      <input
+        id="mintAmount"
+        onChange={(e) => setMintAmount(e.target.value)}
+        placeholder="420"
+        value={mintAmount}
+      />
+      <button disabled={!write || isLoading}>
+        {isLoading ? "Minting..." : "Mint"}
+      </button>
+      {isSuccess && (
+        <div>
+          Successfully minted your NFT!
+          <div>
+            <a href={`https://etherscan.io/tx/${data?.hash}`}>Etherscan</a>
+          </div>
+        </div>
+      )}
+      {(isPrepareError || isError) && (
+        <div>Error: {(prepareError || error)?.message}</div>
+      )}
+    </form>
+  );
+}
