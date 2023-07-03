@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Contract } from "alchemy-sdk";
 import { useAccount, useSigner } from "wagmi";
 
-import { Button } from "@material-tailwind/react";
+import { Button, Progress} from "@material-tailwind/react";
 import contractAbi from "../contracts_abi/contractAbi.json";
 
 // NFT Minter component function
@@ -24,20 +24,40 @@ export default function MintNFT({
   const [isMinting, setIsMinting] = useState(false);
 
   // set number of tokens to mint
+  const [maxMintAmount, setMaxMintAmount] = useState(1);
   const [mintAmount, setMintAmount] = useState(1);
 
   // set mint cost from smart contract
   const [cost, setCost] = useState(0);
+
+  // get number of NFTs owned by the wallet
+  const [totalSupply, setTotalSupply] = useState(0);
+
+  // get total number of NFTs in colllection  
+  const [maxSupply, setMaxSupply] = useState(0);
 
   // set display price on user interface
   const [displayPrice, setDisplayPrice] = useState(0.05);
   
   const nftContract = new Contract(contractAddress, abi, signer);
 
+  // interact with the deployed smart contract
   const getMint = async () => {
     const price = await nftContract.cost();
     console.log(price.toString()) 
     setCost(price.toString())
+
+    const nftLeft = await nftContract.totalSupply();
+    console.log(nftLeft.toString());
+    setTotalSupply(nftLeft.toString());
+
+    const totalNftsInCollection = await nftContract.maxSupply();
+    console.log(Number(totalNftsInCollection));
+    setMaxSupply(totalNftsInCollection.toString());
+
+    const amount = await nftContract.maxMintAmount();
+    console.log(Number(amount));
+    setMaxMintAmount(amount.toString());
   };
   
   React.useEffect(() => {
@@ -54,7 +74,7 @@ export default function MintNFT({
   }
 
   function increment() {
-    if (mintAmount < 2) {
+    if (mintAmount < maxMintAmount) { increment
       setMintAmount((a) => a + 1);
       setDisplayPrice((a) => a * 2);
     }
@@ -103,6 +123,12 @@ export default function MintNFT({
               collection is made up of 50 NFTs on MATIC Mumbai. A maximum of 2
               NFTs can be minted per wallet.{" "}
             </p>
+          </div>
+          <div className="mt-3 flex flex-col items-end justify-between">
+            <div>
+              {totalSupply}/{maxSupply} Minted
+            </div>
+            <Progress value={50} label="Completed" />
           </div>
           <div className="mt-3 flex items-end justify-between">
             <p>
