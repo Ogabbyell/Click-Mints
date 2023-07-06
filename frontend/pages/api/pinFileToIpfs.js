@@ -60,11 +60,10 @@ export default async function handler(req, res) {
             Authorization: `Bearer ${process.env.PINATA_JWT}`,
           },
         })
-        // console.log(cid.data)
-        .then(function (res) {
-          console.log(res);
-          return res.IpfsHash;
-        });
+        console.log(cid.data.IpfsHash)
+        // .then(function (res) {
+        //   return res.IpfsHash;
+        // });
 
       // const cid = await fetch(
       //   "https://api.pinata.cloud/pinning/pinFileToIPFS",
@@ -85,9 +84,10 @@ export default async function handler(req, res) {
 
 
       // Return the file URL for the pinned image
+      const hash = cid.data.IpfsHash;
       res
         .status(200)
-        .send({ fileURL: `https://gateway.pinata.cloud/ipfs/${cid}` });
+        .send({ fileURL: `https://gateway.pinata.cloud/ipfs/${hash}` });
     } catch (e) {
       console.log(e);
       res.status(500).send({
