@@ -1,7 +1,8 @@
 // Before using this API endpoint, make sure to run npm install FormData formidable or yarn install FormData formidable.
 import FormData from "form-data";
-import formidable from "formidable";
+import { formidable } from "formidable";
 import fs from "fs";
+import axios from "axios";
 
 export const config = {
   api: {
@@ -36,7 +37,7 @@ export default async function handler(req, res) {
 
       // Create a metadata object for the image
       const metadata = JSON.stringify({
-        name: "File name",
+        name: image.newFilename,
       });
       // Append the metadata object to the form data object
       formData.append("pinataMetadata", metadata);
@@ -49,21 +50,39 @@ export default async function handler(req, res) {
       formData.append("pinataOptions", options);
 
       // Send a POST request to pin the file to IPFS using Pinata API
-      const cid = await fetch(
-        "https://api.pinata.cloud/pinning/pinFileToIPFS",
-        {
-          method: "POST",
-          body: formData,
+
+      const cid = await axios
+        .post("https://api.pinata.cloud/pinning/pinFileToIPFS", formData, {
+          maxBodyLength: "Infinity",
           headers: {
+            "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
             // Pass in authorization token to access Pinata API
             Authorization: `Bearer ${process.env.PINATA_JWT}`,
           },
-        }
-      )
-        .then((res) => res.json())
-        .then((res) => {
+        })
+        // console.log(cid.data)
+        .then(function (res) {
+          console.log(res);
           return res.IpfsHash;
         });
+
+      // const cid = await fetch(
+      //   "https://api.pinata.cloud/pinning/pinFileToIPFS",
+      //   {
+      //     method: "POST",
+      //     body: formData,
+      //     headers: {
+      //       // Pass in authorization token to access Pinata API
+      //       Authorization: `Bearer ${process.env.PINATA_JWT}`,
+      //     },
+      //   }
+      // )
+        // .then((res) => res.json())
+        // .then((res) => {
+        //   return res.IpfsHash;
+        // });
+        // console.log(cid.data);
+
 
       // Return the file URL for the pinned image
       res

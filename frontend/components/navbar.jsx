@@ -49,7 +49,7 @@ export default function Example() {
         className="p-2 font-normal hover:text-blue-500"
       >
         <a href="/gallery" className="flex items-center">
-          NFT Gallery
+          Gallery
         </a>
       </Typography>
       <Typography
@@ -59,7 +59,7 @@ export default function Example() {
         className="p-2 font-normal hover:text-blue-500"
       >
         <a href="/create" className="flex items-center">
-          Create NFT
+          Create
         </a>
       </Typography>
     </ul>

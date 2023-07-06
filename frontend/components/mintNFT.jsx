@@ -33,33 +33,33 @@ export default function MintNFT({
   // get number of NFTs owned by the wallet
   const [totalSupply, setTotalSupply] = useState(0);
 
-  // get total number of NFTs in colllection  
+  // get total number of NFTs in colllection
   const [maxSupply, setMaxSupply] = useState(0);
 
   // set display price on user interface
   const [displayPrice, setDisplayPrice] = useState(0.05);
-  
+
   const nftContract = new Contract(contractAddress, abi, signer);
 
   // interact with the deployed smart contract
   const getMint = async () => {
     const price = await nftContract.cost();
-    console.log(price.toString()) 
-    setCost(price.toString())
+    console.log(price.toString());
+    setCost(price.toString());
 
     const nftLeft = await nftContract.totalSupply();
     console.log(nftLeft.toString());
-    setTotalSupply(nftLeft.toString());
+    setTotalSupply(Number(nftLeft));
 
     const totalNftsInCollection = await nftContract.maxSupply();
     console.log(Number(totalNftsInCollection));
-    setMaxSupply(totalNftsInCollection.toString());
+    setMaxSupply(Number(totalNftsInCollection));
 
     const amount = await nftContract.maxMintAmount();
     console.log(Number(amount));
-    setMaxMintAmount(amount.toString());
+    setMaxMintAmount(Number(amount));
   };
-  
+
   React.useEffect(() => {
     if (nftContract?.signer) {
       getMint();
@@ -74,26 +74,33 @@ export default function MintNFT({
   }
 
   function increment() {
-    if (mintAmount < maxMintAmount) { increment
+    if (mintAmount < maxMintAmount) {
+      increment;
       setMintAmount((a) => a + 1);
       setDisplayPrice((a) => a * 2);
     }
   }
 
   console.log(cost);
-  
+
+  // display percentage of NFT left using progress bar
+  const percentageNftLeft = ((totalSupply / maxSupply)*100);
+  console.log(percentageNftLeft);
+
   // Function to mint a new NFT
   const mintNFT = async () => {
     console.log(tokenUri, contractAddress, address);
 
     // Create a new instance of the NFT contract using the contract address and ABI
     // const nftContract = new Contract(contractAddress, abi, signer);
-    
+
     try {
       // Set isMinting to true to show that the transaction is being processed
       setIsMinting(true);
       // Call the smart contract function to mint a new NFT with the provided token URI and the user's address
-      const mintTx = await nftContract.mint(mintAmount, {value: ((cost * mintAmount).toString())});
+      const mintTx = await nftContract.mint(mintAmount, {
+        value: (cost * mintAmount).toString(),
+      });
       // Set the transaction hash in state to display in the UI
       setTxHash(mintTx?.hash);
       // Wait for the transaction to be processed
@@ -128,7 +135,7 @@ export default function MintNFT({
             <div>
               {totalSupply}/{maxSupply} Minted
             </div>
-            <Progress value={50} label="Completed" />
+            <Progress value={percentageNftLeft} label=" " />
           </div>
           <div className="mt-3 flex items-end justify-between">
             <p>

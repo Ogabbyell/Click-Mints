@@ -83,7 +83,7 @@ export default function NftCreator({
     try {
       const NFTContract = new Contract(contractAddress, abi, signer);
       const metadataURL = await generateMetadata();
-      const mintTx = await NFTContract.safeMint(metadataURL, address);
+      const mintTx = await NFTContract.safeMint(address, metadataURL);
       setTxHash(mintTx.hash);
       await mintTx.wait();
       setTxHash(null);
