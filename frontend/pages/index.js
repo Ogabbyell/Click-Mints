@@ -1,5 +1,3 @@
-// import { ConnectButton } from '@rainbow-me/rainbowkit';
-// import type { NextPage } from 'next';
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import {
@@ -40,45 +38,7 @@ const Home = () => {
               <Typography variant="h4" color="blue-gray" className="mb-2">
                 Gaming NFTs
               </Typography>
-              <Typography color="blue" className="font-medium" textGradient>
-                CEO / Co-Founder
-              </Typography>
             </CardBody>
-            <CardFooter className="flex justify-center gap-7 pt-2">
-              <Tooltip content="Like">
-                <Typography
-                  as="a"
-                  href="#facebook"
-                  variant="lead"
-                  color="blue"
-                  textGradient
-                >
-                  <i className="fab fa-facebook" />
-                </Typography>
-              </Tooltip>
-              <Tooltip content="Follow">
-                <Typography
-                  as="a"
-                  href="#twitter"
-                  variant="lead"
-                  color="light-blue"
-                  textGradient
-                >
-                  <i className="fab fa-twitter" />
-                </Typography>
-              </Tooltip>
-              <Tooltip content="Follow">
-                <Typography
-                  as="a"
-                  href="#instagram"
-                  variant="lead"
-                  color="purple"
-                  textGradient
-                >
-                  <i className="fab fa-instagram" />
-                </Typography>
-              </Tooltip>
-            </CardFooter>
           </Card>
 
           <Card className="w-96 hover:border-4 border-rose-600">
@@ -89,45 +49,7 @@ const Home = () => {
               <Typography variant="h4" color="blue-gray" className="mb-2">
                 Video NFTs
               </Typography>
-              <Typography color="blue" className="font-medium" textGradient>
-                CEO / Co-Founder
-              </Typography>
             </CardBody>
-            <CardFooter className="flex justify-center gap-7 pt-2">
-              <Tooltip content="Like">
-                <Typography
-                  as="a"
-                  href="#facebook"
-                  variant="lead"
-                  color="blue"
-                  textGradient
-                >
-                  <i className="fab fa-facebook" />
-                </Typography>
-              </Tooltip>
-              <Tooltip content="Follow">
-                <Typography
-                  as="a"
-                  href="#twitter"
-                  variant="lead"
-                  color="light-blue"
-                  textGradient
-                >
-                  <i className="fab fa-twitter" />
-                </Typography>
-              </Tooltip>
-              <Tooltip content="Follow">
-                <Typography
-                  as="a"
-                  href="#instagram"
-                  variant="lead"
-                  color="purple"
-                  textGradient
-                >
-                  <i className="fab fa-instagram" />
-                </Typography>
-              </Tooltip>
-            </CardFooter>
           </Card>
 
           <Card className="w-96 hover:border-4 border-rose-600">
@@ -138,45 +60,7 @@ const Home = () => {
               <Typography variant="h4" color="blue-gray" className="mb-2">
                 Music NFTs
               </Typography>
-              <Typography color="blue" className="font-medium" textGradient>
-                CEO / Co-Founder
-              </Typography>
             </CardBody>
-            <CardFooter className="flex justify-center gap-7 pt-2">
-              <Tooltip content="Like">
-                <Typography
-                  as="a"
-                  href="#facebook"
-                  variant="lead"
-                  color="blue"
-                  textGradient
-                >
-                  <i className="fab fa-facebook" />
-                </Typography>
-              </Tooltip>
-              <Tooltip content="Follow">
-                <Typography
-                  as="a"
-                  href="#twitter"
-                  variant="lead"
-                  color="light-blue"
-                  textGradient
-                >
-                  <i className="fab fa-twitter" />
-                </Typography>
-              </Tooltip>
-              <Tooltip content="Follow">
-                <Typography
-                  as="a"
-                  href="#instagram"
-                  variant="lead"
-                  color="purple"
-                  textGradient
-                >
-                  <i className="fab fa-instagram" />
-                </Typography>
-              </Tooltip>
-            </CardFooter>
           </Card>
 
           <Card className="w-96 hover:border-4 border-rose-600">
@@ -187,45 +71,7 @@ const Home = () => {
               <Typography variant="h4" color="blue-gray" className="mb-2">
                 Mystery Box NFTs
               </Typography>
-              <Typography color="blue" className="font-medium" textGradient>
-                CEO / Co-Founder
-              </Typography>
             </CardBody>
-            <CardFooter className="flex justify-center gap-7 pt-2">
-              <Tooltip content="Like">
-                <Typography
-                  as="a"
-                  href="#facebook"
-                  variant="lead"
-                  color="blue"
-                  textGradient
-                >
-                  <i className="fab fa-facebook" />
-                </Typography>
-              </Tooltip>
-              <Tooltip content="Follow">
-                <Typography
-                  as="a"
-                  href="#twitter"
-                  variant="lead"
-                  color="light-blue"
-                  textGradient
-                >
-                  <i className="fab fa-twitter" />
-                </Typography>
-              </Tooltip>
-              <Tooltip content="Follow">
-                <Typography
-                  as="a"
-                  href="#instagram"
-                  variant="lead"
-                  color="purple"
-                  textGradient
-                >
-                  <i className="fab fa-instagram" />
-                </Typography>
-              </Tooltip>
-            </CardFooter>
           </Card>
 
           <Card className="w-96 hover:border-4 border-rose-600">
@@ -236,45 +82,7 @@ const Home = () => {
               <Typography variant="h4" color="blue-gray" className="mb-2">
                 NFT Tickets
               </Typography>
-              <Typography color="blue" className="font-medium" textGradient>
-                CEO / Co-Founder
-              </Typography>
             </CardBody>
-            <CardFooter className="flex justify-center gap-7 pt-2">
-              <Tooltip content="Like">
-                <Typography
-                  as="a"
-                  href="#facebook"
-                  variant="lead"
-                  color="blue"
-                  textGradient
-                >
-                  <i className="fab fa-facebook" />
-                </Typography>
-              </Tooltip>
-              <Tooltip content="Follow">
-                <Typography
-                  as="a"
-                  href="#twitter"
-                  variant="lead"
-                  color="light-blue"
-                  textGradient
-                >
-                  <i className="fab fa-twitter" />
-                </Typography>
-              </Tooltip>
-              <Tooltip content="Follow">
-                <Typography
-                  as="a"
-                  href="#instagram"
-                  variant="lead"
-                  color="purple"
-                  textGradient
-                >
-                  <i className="fab fa-instagram" />
-                </Typography>
-              </Tooltip>
-            </CardFooter>
           </Card>
 
           <Card className="w-96 hover:border-4 border-rose-600">
@@ -285,53 +93,57 @@ const Home = () => {
               <Typography variant="h4" color="blue-gray" className="mb-2">
                 OATs and POAPs
               </Typography>
-              <Typography color="blue" className="font-medium" textGradient>
-                CEO / Co-Founder
-              </Typography>
             </CardBody>
-            <CardFooter className="flex justify-center gap-7 pt-2">
-              <Tooltip content="Like">
-                <Typography
-                  as="a"
-                  href="#facebook"
-                  variant="lead"
-                  color="blue"
-                  textGradient
-                >
-                  <i className="fab fa-facebook" />
-                </Typography>
-              </Tooltip>
-              <Tooltip content="Follow">
-                <Typography
-                  as="a"
-                  href="#twitter"
-                  variant="lead"
-                  color="light-blue"
-                  textGradient
-                >
-                  <i className="fab fa-twitter" />
-                </Typography>
-              </Tooltip>
-              <Tooltip content="Follow">
-                <Typography
-                  as="a"
-                  href="#instagram"
-                  variant="lead"
-                  color="purple"
-                  textGradient
-                >
-                  <i className="fab fa-instagram" />
-                </Typography>
-              </Tooltip>
-            </CardFooter>
           </Card>
         </div>
       </main>
 
-      <footer className={styles.footer}>
-        <a href="https://rainbow.me" rel="noopener noreferrer" target="_blank">
-          Made with ❤️ by your frens at 🌈
-        </a>
+      <footer className="flex w-full flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 border-t border-blue-gray-50 py-6 text-center md:justify-between">
+        <Typography color="blue-gray" className="font-normal">
+          &copy; 2023 Click Mints
+        </Typography>
+        <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
+          <li>
+            <Typography
+              as="a"
+              href="#"
+              color="blue-gray"
+              className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
+            >
+              About Us
+            </Typography>
+          </li>
+          <li>
+            <Typography
+              as="a"
+              href="#"
+              color="blue-gray"
+              className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
+            >
+              Join Us
+            </Typography>
+          </li>
+          <li>
+            <Typography
+              as="a"
+              href="#"
+              color="blue-gray"
+              className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
+            >
+              Contribute
+            </Typography>
+          </li>
+          <li>
+            <Typography
+              as="a"
+              href="#"
+              color="blue-gray"
+              className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
+            >
+              Contact Us
+            </Typography>
+          </li>
+        </ul>
       </footer>
     </div>
   );

@@ -3,12 +3,20 @@ import styles from "../styles/NftMinter.module.css";
 import { useState } from "react";
 import { Contract } from "alchemy-sdk";
 import { useAccount, useSigner } from "wagmi";
-
-import { Button, Progress} from "@material-tailwind/react";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+  Tooltip,
+  Button,
+  Progress,
+} from "@material-tailwind/react";
 import contractAbi from "../contracts_abi/contractAbi.json";
 
 // NFT Minter component function
-export default function MintNFT({
+export default function MintFoxNFT({
   contractAddress = "0xb144F34890BbcCE87E6423fa1e089f99D56E588e",
   tokenUri,
   abi = contractAbi,
@@ -84,7 +92,7 @@ export default function MintNFT({
   console.log(cost);
 
   // display percentage of NFT left using progress bar
-  const percentageNftLeft = ((totalSupply / maxSupply)*100);
+  const percentageNftLeft = (totalSupply / maxSupply) * 100;
   console.log(percentageNftLeft);
 
   // Function to mint a new NFT
@@ -116,35 +124,38 @@ export default function MintNFT({
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
-      <div className="cursor-pointer rounded-xl bg-white p-3 shadow-lg hover:shadow-xl">
-        <div className="relative flex items-end overflow-hidden rounded-xl">
-          <img src="/images/polyalien3.png" alt="wallpaper" />
-        </div>
-
-        <div className="mt-1 p-2">
-          <h1 className="text-lg font-bold">PolyAliens NFT</h1>
-          <div>
-            <p>
-              The PolyAliens are a group of Aliens from outer space. The
-              collection is made up of 50 NFTs on MATIC Mumbai. A maximum of 2
-              NFTs can be minted per wallet.{" "}
-            </p>
+    <div className="flex items-center justify-center">
+      <Card className="w-96">
+        <CardHeader shadow={false} floated={false} className="h-60">
+          <img
+            src="/images/polyalien3.png"
+            className="w-full h-full object-cover"
+          />
+        </CardHeader>
+        <CardBody>
+          <div className="flex items-center justify-between mb-2">
+            <Typography color="blue-gray" className="font-bold">
+              PolyAliens NFT
+            </Typography>
+            <Typography color="blue-gray" className="font-medium">
+              {displayPrice} {""}MATIC{" "}
+            </Typography>
           </div>
+          <Typography
+            variant="small"
+            color="gray"
+            className="font-normal opacity-75"
+          >
+            The PolyAliens are a group of Aliens from outer space. The
+            collection is made up of 50 NFTs on MATIC Mumbai. A maximum of 2
+            NFTs can be minted at a time.
+          </Typography>
           <div className="mt-3 flex flex-col items-end justify-between">
-            <div>
+            <Typography color="blue-gray" className="font-medium">
               {totalSupply}/{maxSupply} Minted
-            </div>
+            </Typography>
             <Progress value={percentageNftLeft} label=" " />
-          </div>
-          <div className="mt-3 flex items-end justify-between">
-            <p>
-              <span className="text-lg ">
-                {displayPrice} {""}MATIC{" "}
-              </span>
-            </p>
-
-            <div className="group inline-flex rounded-xl">
+            <div className="mt-3 group inline-flex rounded-xl">
               <button
                 onClick={() => {
                   decrement();
@@ -192,8 +203,8 @@ export default function MintNFT({
               </button>
             </div>
           </div>
-        </div>
-        <div>
+        </CardBody>
+        <CardFooter className="pt-0">
           {isDisconnected ? (
             <p>Connect your wallet to get started</p>
           ) : !txHash ? (
@@ -230,8 +241,8 @@ export default function MintNFT({
               </div>
             </div>
           )}
-        </div>
-      </div>
+        </CardFooter>
+      </Card>
     </div>
   );
 }
