@@ -10,23 +10,20 @@ import {
   Progress,
 } from "@material-tailwind/react";
 
-
-
-export default function ClickMintsNFT() {
-  
+export default function MintTicketNFT() {
   return (
     <div className="flex items-center justify-center">
       <Card className="w-96">
         <CardHeader shadow={false} floated={false} className="h-60">
           <img
-            src="/images/bubble.png"
+            src="/images/concert.jpg"
             className="w-full h-full object-cover"
           />
         </CardHeader>
         <CardBody>
           <div className="flex items-center justify-between mb-2">
             <Typography color="blue-gray" className="font-bold">
-              ClickMints NFT
+              AOA Concert Tickets
             </Typography>
             <Typography color="blue-gray" className="font-medium">
               FREE{" "}
@@ -37,8 +34,9 @@ export default function ClickMintsNFT() {
             color="gray"
             className="font-normal opacity-75"
           >
-            This NFT is for community members with OG role. Only one NFT can be
-            minted per wallet. Minting is free and comes with 1000 CMT tokens.
+            NFT Tickets for the upcoming Abuja Open Air concert, featuring a
+            variety of artists and DJs. Get a 10% discount for using Click
+            Mints.
           </Typography>
           <div className="mt-3 flex flex-col items-end justify-between">
             <Typography color="blue-gray" className="font-medium">
@@ -86,7 +84,7 @@ export default function ClickMintsNFT() {
         </CardBody>
         <CardFooter className="pt-0">
           <Button fullWidth color="gray">
-            Coming Soon
+            Sold Out
           </Button>
         </CardFooter>
       </Card>

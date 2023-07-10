@@ -7,7 +7,7 @@ import { useAccount, useSigner } from "wagmi";
 import creatorAbi from "../contracts_abi/creatorAbi.json";
 
 // React component for NFT creator form
-export default function NftCreator({ 
+export default function NftCreator({
   contractAddress = "0x1FCB4617F7e331363876AEAcde086BEB6d66420E",
   abi = creatorAbi,
 }) {
@@ -74,6 +74,7 @@ export default function NftCreator({
   const mintNFT = async () => {
     if (formNotFilled()) {
       setError(true);
+      setIsSubmitting(false);
       return;
     }
 
@@ -86,9 +87,11 @@ export default function NftCreator({
       const mintTx = await NFTContract.safeMint(address, metadataURL);
       setTxHash(mintTx.hash);
       await mintTx.wait();
+      setIsSubmitting(false);
       setTxHash(null);
     } catch (e) {
       console.log(e);
+      setIsSubmitting(false);
       return;
     }
   };
@@ -104,7 +107,7 @@ export default function NftCreator({
       method: "POST",
       body: formData,
     }).then((res) => res.json());
-    console.log(fileURL)
+    console.log(fileURL);
 
     // Create a metadata object with the NFT's description, image file URL, name, and attributes
     const metadata = {
@@ -265,25 +268,28 @@ export default function NftCreator({
               </div>
             ) : (
               <div>
-                <h3 className={styles.attribute_input_label}>ADDRESS</h3>
-                <a
-                  href={`https://mumbai.polygonscan.com/tx/${txHash}`}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <div className={styles.address_container}>
-                    <div>
-                      {txHash.slice(0, 6)}...{txHash.slice(6, 10)}
+                Successfully minted your NFT!
+                <div>
+                  <h3 className={styles.attribute_input_label}>ADDRESS</h3>
+                  <a
+                    href={`https://goerli.etherscan.io/tx/${txHash}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <div className={styles.address_container}>
+                      <div>
+                        {txHash.slice(0, 6)}...{txHash.slice(6, 10)}
+                      </div>
+                      <img
+                        src={
+                          "https://static.alchemyapi.io/images/cw3d/Icon%20Large/etherscan-l.svg"
+                        }
+                        width="20px"
+                        height="20px"
+                      />
                     </div>
-                    <img
-                      src={
-                        "https://static.alchemyapi.io/images/cw3d/Icon%20Large/etherscan-l.svg"
-                      }
-                      width="20px"
-                      height="20px"
-                    />
-                  </div>
-                </a>
+                  </a>
+                </div>
               </div>
             )}
           </div>
@@ -294,8 +300,8 @@ export default function NftCreator({
 }
 
 // Send a POST request to the api/pinFileToIpfs.js to store the NFT image or video on IPFS
-    // const { cid, IpfsHash } = await axios.post(`/api/pinFileToIpfs`, {
-    //   method: "POST",
-    //   body: formData,
-    // }).then((res) => res.json());
-    // console.log(cid, IpfsHash, fileURL);
+// const { cid, IpfsHash } = await axios.post(`/api/pinFileToIpfs`, {
+//   method: "POST",
+//   body: formData,
+// }).then((res) => res.json());
+// console.log(cid, IpfsHash, fileURL);
