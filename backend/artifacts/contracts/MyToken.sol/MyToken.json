@@ -2,7 +2,7 @@
   "_format": "hh-sol-artifact-1",
   "contractName": "MyToken",
   "sourceName": "contracts/MyToken.sol",
-  "creatorAbi": [
+  "abi": [
     {
       "inputs": [],
       "stateMutability": "nonpayable",

@@ -26,7 +26,7 @@ export default function MintTicketNFT() {
               AOA Concert Tickets
             </Typography>
             <Typography color="blue-gray" className="font-medium">
-              FREE{" "}
+              0.01{" "}ETH
             </Typography>
           </div>
           <Typography

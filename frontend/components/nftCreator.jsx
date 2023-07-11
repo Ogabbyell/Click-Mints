@@ -8,7 +8,7 @@ import creatorAbi from "../contracts_abi/creatorAbi.json";
 
 // React component for NFT creator form
 export default function NftCreator({
-  contractAddress = "0x1FCB4617F7e331363876AEAcde086BEB6d66420E",
+  contractAddress = "0x46BA3680202827E406A48f66899e97501D2ca93d",
   abi = creatorAbi,
 }) {
   // Hooks for handling form input and submission
@@ -272,7 +272,7 @@ export default function NftCreator({
                 <div>
                   <h3 className={styles.attribute_input_label}>ADDRESS</h3>
                   <a
-                    href={`https://goerli.etherscan.io/tx/${txHash}`}
+                    href={`https://mumbai.polygonscan.com/tx/${txHash}`}
                     target="_blank"
                     rel="noreferrer"
                   >

@@ -26,7 +26,7 @@ export default function Example() {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-2 font-normal hover:text-blue-500"
+        className="p-2 font-normal hover:text-blue-500 focus:text-blue-500"
       >
         <a href="/" className="flex items-center">
           Home
@@ -36,7 +36,7 @@ export default function Example() {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-2 font-normal hover:text-blue-500"
+        className="p-2 font-normal hover:text-blue-500 focus:text-blue-500"
       >
         <a href="/mintpad" className="flex items-center">
           Mintpad
@@ -46,7 +46,7 @@ export default function Example() {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-2 font-normal hover:text-blue-500"
+        className="p-2 font-normal hover:text-blue-500 focus:text-blue-500"
       >
         <a href="/gallery" className="flex items-center">
           Gallery
@@ -56,7 +56,7 @@ export default function Example() {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-2 font-normal hover:text-blue-500"
+        className="p-2 font-normal hover:text-blue-500 focus:text-blue-500"
       >
         <a href="/create" className="flex items-center">
           Create

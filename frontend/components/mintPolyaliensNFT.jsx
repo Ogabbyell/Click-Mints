@@ -91,9 +91,9 @@ export default function MintNFT({
 
   console.log(cost);
 
-  // display percentage of NFT left using progress bar
-  const percentageNftLeft = (totalSupply / maxSupply) * 100;
-  console.log(percentageNftLeft);
+  // display percentage of NFT minted using progress bar
+  const percentageNftMinted = (totalSupply / maxSupply) * 100;
+  console.log(percentageNftMinted);
 
   // Function to mint a new NFT
   const mintNFT = async () => {
@@ -138,7 +138,7 @@ export default function MintNFT({
               PolyAliens NFT
             </Typography>
             <Typography color="blue-gray" className="font-medium">
-              {displayPrice} {""}MATIC{" "}
+              {displayPrice} {""}ETH{" "}
             </Typography>
           </div>
           <Typography
@@ -146,15 +146,15 @@ export default function MintNFT({
             color="gray"
             className="font-normal opacity-75"
           >
-            The PolyAliens are a group of Aliens from outer space. The
-            collection is made up of 50 NFTs on MATIC Mumbai. A maximum of 2
-            NFTs can be minted at a time.
+            The PolyAliens are Aliens from outer space. The collection is made
+            up of 50 NFTs on MATIC Mumbai. A maximum of 2 NFTs can be minted at
+            a time.
           </Typography>
           <div className="mt-3 flex flex-col items-end justify-between">
             <Typography color="blue-gray" className="font-medium">
               {totalSupply}/{maxSupply} Minted
             </Typography>
-            <Progress value={percentageNftLeft} label=" " />
+            <Progress value={percentageNftMinted} label=" " />
             <div className="mt-3 group inline-flex rounded-xl">
               <button
                 onClick={() => {

@@ -3,18 +3,7 @@ import "@rainbow-me/rainbowkit/styles.css";
 
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { configureChains, createClient, useAccount, WagmiConfig } from "wagmi";
-import {
-  mainnet,
-  polygon,
-  optimism,
-  arbitrum,
-  goerli,
-  polygonMumbai,
-  optimismGoerli,
-  arbitrumGoerli,
-  polygonZkEvm,
-  polygonZkEvmTestnet,
-} from "wagmi/chains";
+import { polygonMumbai } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 import RootLayout from "./layout";
@@ -22,23 +11,14 @@ import { useRouter } from "next/router";
 
 const { chains, provider } = configureChains(
   [
-    mainnet,
-    goerli,
-    polygon,
     polygonMumbai,
-    optimism,
-    optimismGoerli,
-    arbitrum,
-    arbitrumGoerli,
-    polygonZkEvm,
-    polygonZkEvmTestnet,
   ],
   [alchemyProvider({ apiKey: process.env.ALCHEMY_API_KEY }), publicProvider()]
 );
 
 const { connectors } = getDefaultWallets({
   appName: "Click Mints",
-  projectId: "745829b5c8ced16e39efa85846a9bc48",
+  projectId: process.env.NEXT_PUBLIC_APP_ID,
   chains,
 });
 
