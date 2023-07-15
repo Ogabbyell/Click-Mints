@@ -60,27 +60,6 @@ export default async function handler(req, res) {
             Authorization: `Bearer ${process.env.PINATA_JWT}`,
           },
         })
-        console.log(cid.data.IpfsHash)
-        // .then(function (res) {
-        //   return res.IpfsHash;
-        // });
-
-      // const cid = await fetch(
-      //   "https://api.pinata.cloud/pinning/pinFileToIPFS",
-      //   {
-      //     method: "POST",
-      //     body: formData,
-      //     headers: {
-      //       // Pass in authorization token to access Pinata API
-      //       Authorization: `Bearer ${process.env.PINATA_JWT}`,
-      //     },
-      //   }
-      // )
-        // .then((res) => res.json())
-        // .then((res) => {
-        //   return res.IpfsHash;
-        // });
-        // console.log(cid.data);
 
 
       // Return the file URL for the pinned image

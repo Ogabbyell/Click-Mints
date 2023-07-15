@@ -23,7 +23,7 @@ export default function NFTGallery({}) {
         break;
       case "collection":
         setWalletOrCollectionAddress(
-          "0x8a90CAb2b38dba80c64b7734e58Ee1dB38B8992e"
+          "0x46BA3680202827E406A48f66899e97501D2ca93d"
         );
         break;
       case "connectedWallet":

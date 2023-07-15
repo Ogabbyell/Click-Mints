@@ -47,24 +47,21 @@ export default function MintNFT({
   // set display price on user interface
   const [displayPrice, setDisplayPrice] = useState(0.05);
 
+  // Create a new instance of the NFT contract using the contract address and ABI
   const nftContract = new Contract(contractAddress, abi, signer);
 
   // interact with the deployed smart contract
   const getMint = async () => {
     const price = await nftContract.cost();
-    console.log(price.toString());
     setCost(price.toString());
 
-    const nftLeft = await nftContract.totalSupply();
-    console.log(nftLeft.toString());
-    setTotalSupply(Number(nftLeft));
+    const nftMinted = await nftContract.totalSupply();
+    setTotalSupply(Number(nftMinted));
 
     const totalNftsInCollection = await nftContract.maxSupply();
-    console.log(Number(totalNftsInCollection));
     setMaxSupply(Number(totalNftsInCollection));
 
     const amount = await nftContract.maxMintAmount();
-    console.log(Number(amount));
     setMaxMintAmount(Number(amount));
   };
 
@@ -89,19 +86,11 @@ export default function MintNFT({
     }
   }
 
-  console.log(cost);
-
   // display percentage of NFT minted using progress bar
   const percentageNftMinted = (totalSupply / maxSupply) * 100;
-  console.log(percentageNftMinted);
 
   // Function to mint a new NFT
   const mintNFT = async () => {
-    console.log(tokenUri, contractAddress, address);
-
-    // Create a new instance of the NFT contract using the contract address and ABI
-    // const nftContract = new Contract(contractAddress, abi, signer);
-
     try {
       // Set isMinting to true to show that the transaction is being processed
       setIsMinting(true);

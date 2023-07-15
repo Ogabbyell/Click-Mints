@@ -107,7 +107,7 @@ export default function NftCreator({
       method: "POST",
       body: formData,
     }).then((res) => res.json());
-    console.log(fileURL);
+  
 
     // Create a metadata object with the NFT's description, image file URL, name, and attributes
     const metadata = {
@@ -299,9 +299,4 @@ export default function NftCreator({
   );
 }
 
-// Send a POST request to the api/pinFileToIpfs.js to store the NFT image or video on IPFS
-// const { cid, IpfsHash } = await axios.post(`/api/pinFileToIpfs`, {
-//   method: "POST",
-//   body: formData,
-// }).then((res) => res.json());
-// console.log(cid, IpfsHash, fileURL);
+

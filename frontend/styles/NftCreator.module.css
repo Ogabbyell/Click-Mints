@@ -9,7 +9,7 @@
   display: flex;
   gap: 32px;
   padding: 32px;
-  background-color: rgb(99, 99, 246);
+  /* background-color: rgb(99, 99, 246); */
   border-radius:40px;
 }
 
@@ -74,7 +74,7 @@
 .dropzone_upload {
   font-weight: 700;
   font-size: 14px;
-  color: whitesmoke;
+  color: blue;
 }
 
 .nft_image {
