@@ -1,12 +1,9 @@
-
-
 import React from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import {
   Navbar,
   Collapse,
   Typography,
-  Button,
   IconButton,
 } from "@material-tailwind/react";
 
@@ -26,7 +23,7 @@ export default function Example() {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-2 font-normal hover:text-blue-500 focus:text-blue-500"
+        className="p-1 font-normal  hover:text-blue-500 focus:text-blue-500"
       >
         <a href="/" className="flex items-center">
           Home
@@ -36,7 +33,7 @@ export default function Example() {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-2 font-normal hover:text-blue-500 focus:text-blue-500"
+        className="p-1 font-normal  hover:text-blue-500 focus:text-blue-500"
       >
         <a href="/mintpad" className="flex items-center">
           Mintpad
@@ -46,7 +43,7 @@ export default function Example() {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-2 font-normal hover:text-blue-500 focus:text-blue-500"
+        className="p-1 font-normal  hover:text-blue-500 focus:text-blue-500"
       >
         <a href="/gallery" className="flex items-center">
           Gallery
@@ -56,7 +53,7 @@ export default function Example() {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-2 font-normal hover:text-blue-500 focus:text-blue-500"
+        className="p-1 font-normal  hover:text-blue-500 focus:text-blue-500"
       >
         <a href="/create" className="flex items-center">
           Create
@@ -67,14 +64,14 @@ export default function Example() {
 
   return (
     <>
-      <Navbar className="sticky top z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4">
+      <Navbar className="sticky inset-0 z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4">
         <div className="flex items-center justify-between text-blue-gray-900">
           <Typography
             as="a"
             href="#"
             className="mr-4 cursor-pointer py-1.5 font-medium"
           >
-            Material Tailwind
+            <img className="w-24 rounded-lg" src="/images/cm logo.jpg"></img>
           </Typography>
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
@@ -129,9 +126,7 @@ export default function Example() {
             </div>
           </div>
         </div>
-        <Collapse open={openNav}>
-          {navList}
-        </Collapse>
+        <Collapse open={openNav}>{navList}</Collapse>
       </Navbar>
     </>
   );

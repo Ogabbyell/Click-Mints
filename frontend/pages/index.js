@@ -4,10 +4,7 @@ import {
   Card,
   CardHeader,
   CardBody,
-  CardFooter,
   Typography,
-  Tooltip,
-  Button,
 } from "@material-tailwind/react";
 
 const Home = () => {
@@ -23,11 +20,15 @@ const Home = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Click <span>Mints</span>
-        </h1>
+        <header className={styles.header_container}>
+          <h1>
+            Click <span>Mints</span>
+          </h1>
 
-        <p className={styles.description}>Create, Mint and view your NFTs</p>
+          <p className="p-4 rounded-lg bg-gradient-to-r from-green-400 to-blue-500">
+            Create, Mint and view your NFTs
+          </p>
+        </header>
 
         <div className={styles.grid}>
           <Card className="w-96 hover:border-4 border-rose-600">
