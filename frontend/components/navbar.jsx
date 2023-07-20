@@ -1,4 +1,6 @@
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import {
   Navbar,
@@ -25,9 +27,9 @@ export default function Example() {
         color="blue-gray"
         className="p-1 font-normal  hover:text-blue-500 focus:text-blue-500"
       >
-        <a href="/" className="flex items-center">
+        <Link href="/" className="flex items-center">
           Home
-        </a>
+        </Link>
       </Typography>
       <Typography
         as="li"
@@ -35,9 +37,9 @@ export default function Example() {
         color="blue-gray"
         className="p-1 font-normal  hover:text-blue-500 focus:text-blue-500"
       >
-        <a href="/mintpad" className="flex items-center">
+        <Link href="/mintpad" className="flex items-center">
           Mintpad
-        </a>
+        </Link>
       </Typography>
       <Typography
         as="li"
@@ -45,9 +47,9 @@ export default function Example() {
         color="blue-gray"
         className="p-1 font-normal  hover:text-blue-500 focus:text-blue-500"
       >
-        <a href="/gallery" className="flex items-center">
+        <Link href="/gallery" className="flex items-center">
           Gallery
-        </a>
+        </Link>
       </Typography>
       <Typography
         as="li"
@@ -55,23 +57,29 @@ export default function Example() {
         color="blue-gray"
         className="p-1 font-normal  hover:text-blue-500 focus:text-blue-500"
       >
-        <a href="/create" className="flex items-center">
+        <Link href="/create" className="flex items-center">
           Create
-        </a>
+        </Link>
       </Typography>
     </ul>
   );
 
   return (
     <>
-      <Navbar className="sticky inset-0 z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4">
+      <Navbar className="sticky inset-0 z-10 h-24 max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4">
         <div className="flex items-center justify-between text-blue-gray-900">
           <Typography
             as="a"
             href="#"
             className="mr-4 cursor-pointer py-1.5 font-medium"
           >
-            <img className="w-24 rounded-lg" src="/images/cm logo.jpg"></img>
+            <Image
+              className="w-24 rounded-lg"
+              src="/cm logo.jpg"
+              alt="logo"
+              width={500}
+              height={500}
+            />
           </Typography>
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>

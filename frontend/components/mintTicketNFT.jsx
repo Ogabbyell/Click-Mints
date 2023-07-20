@@ -1,11 +1,11 @@
 import * as React from "react";
+import Image from "next/image";
 import {
   Card,
   CardHeader,
   CardBody,
   CardFooter,
   Typography,
-  Tooltip,
   Button,
   Progress,
 } from "@material-tailwind/react";
@@ -15,8 +15,10 @@ export default function MintTicketNFT() {
     <div className="flex items-center justify-center">
       <Card className="w-96">
         <CardHeader shadow={false} floated={false} className="h-60">
-          <img
-            src="/images/concert.jpg"
+          <Image
+            src="/concert.jpg"
+            fill={true}
+            alt="Concert Ticket picture"
             className="w-full h-full object-cover"
           />
         </CardHeader>
@@ -26,7 +28,7 @@ export default function MintTicketNFT() {
               AOA Concert Tickets
             </Typography>
             <Typography color="blue-gray" className="font-medium">
-              0.01{" "}ETH
+              0.01 ETH
             </Typography>
           </div>
           <Typography

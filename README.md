@@ -31,7 +31,7 @@ If you don't already have one, create an account [here](https://cloud.walletconn
 
 4. Get you Pinata JWT
 
-you can create an account on pinata website as[described here](https://docs.alchemy.com/docs/nft-creator-component)if you don't already have one 
+you can create an account on pinata website as [described here](https://docs.alchemy.com/docs/nft-creator-component) if you don't already have one 
 
 5. setup your .env files in frontend root folder and then run `npm run dev` in your terminal to start the development server and explore the app.
 

@@ -1,4 +1,5 @@
 import * as React from "react";
+import Image from "next/image";
 import styles from "../styles/NftMinter.module.css";
 import { useState } from "react";
 import { Contract } from "alchemy-sdk";
@@ -9,7 +10,6 @@ import {
   CardBody,
   CardFooter,
   Typography,
-  Tooltip,
   Button,
   Progress,
 } from "@material-tailwind/react";
@@ -69,7 +69,7 @@ export default function MintNFT({
     if (nftContract?.signer) {
       getMint();
     }
-  }, [nftContract]);
+  }, [getMint]);
 
   function decrement() {
     if (mintAmount > 1) {
@@ -116,8 +116,10 @@ export default function MintNFT({
     <div className="flex items-center justify-center">
       <Card className="w-96">
         <CardHeader shadow={false} floated={false} className="h-60">
-          <img
-            src="/images/polyalien3.png"
+          <Image
+            src="/polyalien3.png"
+            fill={true}
+            alt="PolyAliens picture"
             className="w-full h-full object-cover"
           />
         </CardHeader>

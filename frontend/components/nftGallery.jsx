@@ -110,10 +110,10 @@ export default function NFTGallery({}) {
                 }}
                 defaultValue={process.env.ALCHEMY_NETWORK}
               >
-                <option value={"ETH_MAINNET"}>Mainnet</option>
-                <option value={"MATIC_MAINNET"}>Polygon</option>
-                <option value={"ETH_GOERLI"}>Goerli</option>
                 <option value={"MATIC_MUMBAI"}>Mumbai</option>
+                <option value={"MATIC_MAINNET"}>Polygon</option>
+                <option value={"ETH_MAINNET"}>Mainnet</option>
+                <option value={"ETH_GOERLI"}>Goerli</option>
                 <option value={"ARB_MAINNET"}>Arbitrum</option>
                 <option value={"OPT_MAINNET"}>Optimism</option>
               </select>
@@ -190,7 +190,7 @@ function NftCard({ nft }) {
             Your browser does not support the video tag.
           </video>
         ) : (
-          <img src={nft.media}></img>
+          <img src={nft.media} alt="NFT Image"></img>
         )}
       </div>
       <div className={styles.info_container}>

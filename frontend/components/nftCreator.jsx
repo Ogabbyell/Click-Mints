@@ -1,5 +1,6 @@
 // Import necessary modules and styles
 import styles from "../styles/NftCreator.module.css";
+import Image from "next/image";
 import { Contract } from "alchemy-sdk";
 import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
@@ -139,8 +140,10 @@ export default function NftCreator({
           <input {...getInputProps()}></input>
           {/* Check if an image is uploaded and display it */}
           {imageURL ? (
-            <img
+            <Image
               alt={"NFT Image"}
+              width={500}
+              height={500}
               className={styles.nft_image}
               src={imageURL}
             />

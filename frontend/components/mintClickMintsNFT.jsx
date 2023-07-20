@@ -1,11 +1,11 @@
 import * as React from "react";
+import Image from "next/image";
 import {
   Card,
   CardHeader,
   CardBody,
   CardFooter,
   Typography,
-  Tooltip,
   Button,
   Progress,
 } from "@material-tailwind/react";
@@ -18,8 +18,10 @@ export default function ClickMintsNFT() {
     <div className="flex items-center justify-center">
       <Card className="w-96">
         <CardHeader shadow={false} floated={false} className="h-60">
-          <img
-            src="/images/bubble.png"
+          <Image
+            src="/bubble.png"
+            fill={true}
+            alt="Click Mints picture"
             className="w-full h-full object-cover"
           />
         </CardHeader>
