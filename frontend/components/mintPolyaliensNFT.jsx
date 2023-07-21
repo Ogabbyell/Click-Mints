@@ -117,7 +117,7 @@ export default function MintNFT({
       <Card className="w-96">
         <CardHeader shadow={false} floated={false} className="h-60">
           <Image
-            src="/polyalien3.png"
+            src={"/static/images/polyalien3.png"}
             fill={true}
             alt="PolyAliens picture"
             className="w-full h-full object-cover"

@@ -9,7 +9,7 @@ import creatorAbi from "../contracts_abi/creatorAbi.json";
 
 // React component for NFT creator form
 export default function NftCreator({
-  contractAddress = "0x46BA3680202827E406A48f66899e97501D2ca93d",
+  contractAddress = "0x5E458167aCcF4Af6181F379E38Cf91E321bb8085",
   abi = creatorAbi,
 }) {
   // Hooks for handling form input and submission
@@ -108,7 +108,6 @@ export default function NftCreator({
       method: "POST",
       body: formData,
     }).then((res) => res.json());
-  
 
     // Create a metadata object with the NFT's description, image file URL, name, and attributes
     const metadata = {

@@ -37,7 +37,7 @@ const Home = () => {
           <Card className="w-96 hover:border-4 border-rose-600">
             <CardHeader floated={false} className="h-60">
               <Image
-                src="/picture_nft.jpeg"
+                src={"/static/images/picture_nft.jpeg"}
                 alt="gamingNFT-picture"
                 fill={true}
               />
@@ -51,7 +51,11 @@ const Home = () => {
 
           <Card className="w-96 hover:border-4 border-rose-600">
             <CardHeader floated={false} className="h-60">
-              <Image src="/video_nfts.jpg" alt="videoNFT-picture" fill={true} />
+              <Image
+                src={"/static/images/video_nfts.jpg"}
+                alt="videoNFT-picture"
+                fill={true}
+              />
             </CardHeader>
             <CardBody className="text-center">
               <Typography variant="h4" color="blue-gray" className="mb-2">
@@ -62,7 +66,11 @@ const Home = () => {
 
           <Card className="w-96 hover:border-4 border-rose-600">
             <CardHeader floated={false} className="h-60">
-              <Image src="/music-nft.webp" alt="musicNFT-picture" fill={true} />
+              <Image
+                src={"/static/images/music-nft.webp"}
+                alt="musicNFT-picture"
+                fill={true}
+              />
             </CardHeader>
             <CardBody className="text-center">
               <Typography variant="h4" color="blue-gray" className="mb-2">
@@ -74,7 +82,7 @@ const Home = () => {
           <Card className="w-96 hover:border-4 border-rose-600">
             <CardHeader floated={false} className="h-60">
               <Image
-                src="/mystery_box.webp"
+                src={"/static/images/mystery_box.webp"}
                 alt="mysterybox-picture"
                 fill={true}
               />
@@ -88,7 +96,11 @@ const Home = () => {
 
           <Card className="w-96 hover:border-4 border-rose-600">
             <CardHeader floated={false} className="h-60">
-              <Image src="/tickets.webp" alt="ticketNFT-picture" fill={true} />
+              <Image
+                src={"/static/images/tickets.webp"}
+                alt="ticketNFT-picture"
+                fill={true}
+              />
             </CardHeader>
             <CardBody className="text-center">
               <Typography variant="h4" color="blue-gray" className="mb-2">
@@ -99,7 +111,11 @@ const Home = () => {
 
           <Card className="w-96 hover:border-4 border-rose-600">
             <CardHeader floated={false} className="h-60">
-              <Image src="/badge.jpg" alt="OAT-picture" fill={true} />
+              <Image
+                src={"/static/images/badge.jpg"}
+                alt="OAT-picture"
+                fill={true}
+              />
             </CardHeader>
             <CardBody className="text-center">
               <Typography variant="h4" color="blue-gray" className="mb-2">

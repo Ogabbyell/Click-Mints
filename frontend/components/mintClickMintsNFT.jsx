@@ -19,7 +19,7 @@ export default function ClickMintsNFT() {
       <Card className="w-96">
         <CardHeader shadow={false} floated={false} className="h-60">
           <Image
-            src="/bubble.png"
+            src={"/static/images/bubble.png"}
             fill={true}
             alt="Click Mints picture"
             className="w-full h-full object-cover"

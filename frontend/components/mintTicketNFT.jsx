@@ -16,7 +16,7 @@ export default function MintTicketNFT() {
       <Card className="w-96">
         <CardHeader shadow={false} floated={false} className="h-60">
           <Image
-            src="/concert.jpg"
+            src={"/static/images/concert.jpg"}
             fill={true}
             alt="Concert Ticket picture"
             className="w-full h-full object-cover"

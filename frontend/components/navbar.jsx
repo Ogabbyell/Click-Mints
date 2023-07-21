@@ -75,7 +75,7 @@ export default function Example() {
           >
             <Image
               className="w-24 rounded-lg"
-              src="/cm logo.jpg"
+              src={"/static/images/cm logo.jpg"}
               alt="logo"
               width={500}
               height={500}
