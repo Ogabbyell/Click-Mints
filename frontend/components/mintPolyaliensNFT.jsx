@@ -137,8 +137,8 @@ export default function MintNFT({
             color="gray"
             className="font-normal opacity-75"
           >
-            The PolyAliens are Aliens from outer space. The collection is made
-            up of 50 NFTs on MATIC Mumbai. A maximum of 2 NFTs can be minted at
+            The PolyAliens NFT collection is made
+            up of 50 NFTs on Polygon Mumbai Testnet. A maximum of 2 NFTs can be minted at
             a time.
           </Typography>
           <div className="mt-3 flex flex-col items-end justify-between">

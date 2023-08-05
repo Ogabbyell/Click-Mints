@@ -43,24 +43,19 @@ export default function BunnyNFT({
 
   // Create a new instance of the NFT contract using the contract address and ABI
   const bnyContract = new Contract(contractAddress, abi, signer);
-  console.log(bnyContract);
 
   // interact with the deployed smart contract
   const getMint = async () => {
     const totalNftsInCollection = await bnyContract.maxSupply();
-    console.log(Number(totalNftsInCollection));
     setMaxSupply(Number(totalNftsInCollection));
 
     const mintPrice = await bnyContract.cost();
-    console.log(mintPrice.toString());
     setNftMintPrice(mintPrice.toString());
 
     const nftMinted = await bnyContract.totalSupply();
-    console.log(Number(nftMinted));
     setTotalSupply(Number(nftMinted));
 
     const nftsOwned = await bnyContract.balanceOf(address);
-    console.log(Number(nftsOwned));
   };
 
   // display percentage of NFT minted using progress bar
@@ -119,7 +114,7 @@ export default function BunnyNFT({
             className="font-normal opacity-75"
           >
             The Bunny Crew Collection is made up of 30 Bunny NFTs on the Polygon
-            Mumbai Testnet. Only one NFT can be minted per wallet.
+            Mumbai Testnet. <b>Only one NFT can be minted per wallet</b>.
           </Typography>
           <div className="mt-3 flex flex-col items-end justify-between">
             <Typography color="blue-gray" className="font-medium">
