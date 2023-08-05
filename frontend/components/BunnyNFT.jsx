@@ -13,15 +13,14 @@ import {
   Button,
   Progress,
 } from "@material-tailwind/react";
-import contractAbi from "../contracts_abi/contractAbi.json";
+import bunnyAbi from "../contracts_abi/bunnyAbi.json";
 
-// NFT Minter component function
-export default function MintNFT({
-  contractAddress = "0xb144F34890BbcCE87E6423fa1e089f99D56E588e",
+
+export default function BunnyNFT({
+  contractAddress = "0xFA12Cd1d1110f3e1C90c0065E12aE41438AC2878",
   tokenUri,
-  abi = contractAbi,
+  abi = bunnyAbi,
 }) {
-  // Get the user's wallet address and status of their connection to it
   const { address, isDisconnected } = useAccount();
 
   // Get the signer instance for the connected wallet
@@ -31,63 +30,47 @@ export default function MintNFT({
   const [txHash, setTxHash] = useState();
   const [isMinting, setIsMinting] = useState(false);
 
-  // set number of tokens to mint
-  const [maxMintAmount, setMaxMintAmount] = useState(1);
-  const [mintAmount, setMintAmount] = useState(1);
+  // set display price on user interface
+  const [displayPrice, setDisplayPrice] = useState(0.001);
 
-  // set mint cost from smart contract
-  const [cost, setCost] = useState(0);
-
-  // get number of NFTs owned by the wallet
+  // get number of NFTs minted
   const [totalSupply, setTotalSupply] = useState(0);
 
   // get total number of NFTs in colllection
   const [maxSupply, setMaxSupply] = useState(0);
 
-  // set display price on user interface
-  const [displayPrice, setDisplayPrice] = useState(0.05);
+  const [nftMintPrice, setNftMintPrice] = useState(0);
 
   // Create a new instance of the NFT contract using the contract address and ABI
-  const nftContract = new Contract(contractAddress, abi, signer);
+  const bnyContract = new Contract(contractAddress, abi, signer);
+  console.log(bnyContract);
 
   // interact with the deployed smart contract
   const getMint = async () => {
-    const price = await nftContract.cost();
-    setCost(price.toString());
-
-    const nftMinted = await nftContract.totalSupply();
-    setTotalSupply(Number(nftMinted));
-
-    const totalNftsInCollection = await nftContract.maxSupply();
+    const totalNftsInCollection = await bnyContract.maxSupply();
+    console.log(Number(totalNftsInCollection));
     setMaxSupply(Number(totalNftsInCollection));
 
-    const amount = await nftContract.maxMintAmount();
-    setMaxMintAmount(Number(amount));
+    const mintPrice = await bnyContract.cost();
+    console.log(mintPrice.toString());
+    setNftMintPrice(mintPrice.toString());
+
+    const nftMinted = await bnyContract.totalSupply();
+    console.log(Number(nftMinted));
+    setTotalSupply(Number(nftMinted));
+
+    const nftsOwned = await bnyContract.balanceOf(address);
+    console.log(Number(nftsOwned));
   };
 
+  // display percentage of NFT minted using progress bar
+  const percentageNftMinted = ((totalSupply / maxSupply) * 100).toFixed(0);
+
   React.useEffect(() => {
-    if (nftContract?.signer) {
+    if (bnyContract?.signer) {
       getMint();
     }
   }, [getMint]);
-
-  function decrement() {
-    if (mintAmount > 1) {
-      setMintAmount((a) => a - 1);
-      setDisplayPrice((a) => a / 2);
-    }
-  }
-
-  function increment() {
-    if (mintAmount < maxMintAmount) {
-      increment;
-      setMintAmount((a) => a + 1);
-      setDisplayPrice((a) => a * 2);
-    }
-  }
-
-  // display percentage of NFT minted using progress bar
-  const percentageNftMinted = (totalSupply / maxSupply) * 100;
 
   // Function to mint a new NFT
   const mintNFT = async () => {
@@ -95,9 +78,7 @@ export default function MintNFT({
       // Set isMinting to true to show that the transaction is being processed
       setIsMinting(true);
       // Call the smart contract function to mint a new NFT with the provided token URI and the user's address
-      const mintTx = await nftContract.mint(mintAmount, {
-        value: (cost * mintAmount).toString(),
-      });
+      const mintTx = await bnyContract.safeMint({ value: nftMintPrice });
       // Set the transaction hash in state to display in the UI
       setTxHash(mintTx?.hash);
       // Wait for the transaction to be processed
@@ -117,19 +98,19 @@ export default function MintNFT({
       <Card className="w-96">
         <CardHeader shadow={false} floated={false} className="h-60">
           <Image
-            src={"/static/images/polyalien3.png"}
+            src={"/static/images/bunny2.jpeg"}
             fill={true}
-            alt="PolyAliens picture"
+            alt="Click Mints picture"
             className="w-full h-full object-cover"
           />
         </CardHeader>
         <CardBody>
           <div className="flex items-center justify-between mb-2">
             <Typography color="blue-gray" className="font-bold">
-              PolyAliens NFT
+              Bunny Crew
             </Typography>
             <Typography color="blue-gray" className="font-medium">
-              {displayPrice} {""}MATIC{" "}
+              {displayPrice} MATIC{" "}
             </Typography>
           </div>
           <Typography
@@ -137,9 +118,8 @@ export default function MintNFT({
             color="gray"
             className="font-normal opacity-75"
           >
-            The PolyAliens are Aliens from outer space. The collection is made
-            up of 50 NFTs on MATIC Mumbai. A maximum of 2 NFTs can be minted at
-            a time.
+            The Bunny Crew Collection is made up of 30 Bunny NFTs on the Polygon
+            Mumbai Testnet. Only one NFT can be minted per wallet.
           </Typography>
           <div className="mt-3 flex flex-col items-end justify-between">
             <Typography color="blue-gray" className="font-medium">
@@ -147,12 +127,7 @@ export default function MintNFT({
             </Typography>
             <Progress value={percentageNftMinted} label=" " />
             <div className="mt-3 group inline-flex rounded-xl">
-              <button
-                onClick={() => {
-                  decrement();
-                }}
-                className="bg-white rounded-l border text-gray-600 hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 inline-flex items-center px-2 py-1 border-r border-gray-200"
-              >
+              <button className="bg-white rounded-l border text-gray-600 hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 inline-flex items-center px-2 py-1 border-r border-gray-200">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-4"
@@ -169,14 +144,9 @@ export default function MintNFT({
                 </svg>
               </button>
               <div className="bg-gray-100 border-t border-b border-gray-100 text-gray-600 hover:bg-gray-100 inline-flex items-center px-4 py-1 select-none">
-                {mintAmount}
+                1
               </div>
-              <button
-                onClick={() => {
-                  increment();
-                }}
-                className="bg-white rounded-r border text-gray-600 hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 inline-flex items-center px-2 py-1 border-r border-gray-200"
-              >
+              <button className="bg-white rounded-r border text-gray-600 hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 inline-flex items-center px-2 py-1 border-r border-gray-200">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-4"
